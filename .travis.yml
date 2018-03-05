@@ -1,0 +1,42 @@
+language: go
+sudo: false
+notifications:
+  email: false
+jobs:
+  include:
+    - stage: test
+      go_import_path: github.com/home-IoT/esp-dht22-mock
+      install:
+        - make get-tools
+      os: linux
+      go: 1.9.x
+      script:
+        - make go-dep go-validate
+    - go: 1.9.x
+      stage: deploy
+      go_import_path: github.com/home-IoT/esp-dht22-mock
+      install: skip
+      script: skip
+      before_deploy:
+        - make clean get-tools go-dep go-release-all
+      deploy:
+        - provider: releases
+          api_key:
+            secure: p3tOGBl5sewpq4JxSV34PJ1gwwUA0a2mw59BYtEUkOcmhvNmm74kvKTKViDTZm8zTRPscsY+nKnvs6erZsvPfUuK0dQSjZmDHKn0JGKLKC26AXJ2ZNHegCk3JwvDg+mPA7IgcNYgrKQrJgRKto8j3FYFyVU6nVH6fMpcU0OupMi3vyC3UwozMQH3Zjas70Yh1PhV3aIJR/ye2/01nfIOJb4YEpQOLIdumeYyHkjfXuKUd8oOD3D9XfrHxd+TqsvmF/ipJWuyG6W4GMVN65/kKORg9yPUiNfzz8lFzd4MQiTL8kIh+rm3D2AtB1kRBRV9zSg8Z5zyagkSQ3ypLqMyXyUNVTGgDraT+rAMEtBUcRdi3sLR+CO/NjpBV1xnSwhCNjYstGMOje4+2OSDci6/2xIYVIFxihDsnKwBfQ+/2PkCfGeK5hUyk/g1iAaTox8p85ZdZQmBKyr1Quwdl7Q2OSXmxI87SLUkV7MREJs4XCHHCIMlCuI+hqCbF+E8Q5c4xOc+Bm6f3hoN/McQNECdz18ayG5lA+FDgiQM643DuXgXeJfOeOG6xYn5AqIaagQtQ3VxxOHSrpPHuYiODNINNr9194S5Lu0VskyfKI127skKeGBFlA48OJg+Ro+Otv0UljiqoOL+T8TmVDWiiYahD6WTLm/KgRStdi0A5xCoVsw=
+          file:
+            - release/dht22-mock-darwin-amd64
+            - release/dht22-mock-darwin-amd64.sha256
+            - release/dht22-mock-linux-amd64
+            - release/dht22-mock-linux-amd64.sha256
+            - release/dht22-mock-linux-arm7
+            - release/dht22-mock-linux-arm7.sha256
+            - release/dht22-mock-windows-386
+            - release/dht22-mock-windows-386.sha256
+          skip_cleanup: true
+          on:
+            repo: home-IoT/esp-dht22-mock
+            branch: develop
+            tags: true
+addons:
+  ssh_known_hosts: github.com
+
