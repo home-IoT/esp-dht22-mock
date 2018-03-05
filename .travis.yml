@@ -31,7 +31,7 @@ jobs:
             - release/dht22-mock-linux-arm7
             - release/dht22-mock-linux-arm7.sha256
             - release/dht22-mock-windows-386.exe
-            - release/dht22-mock-windows-386.sha256
+            - release/dht22-mock-windows-386.exe.sha256
           skip_cleanup: true
           on:
             repo: home-IoT/esp-dht22-mock
