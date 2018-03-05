@@ -27,7 +27,7 @@ func CalcHeatIndex(tempC float64, humidity float64) *float64 {
 	if hi < 80 {
 		// Only return heat index if it's greater than the temperature
 		if hi > temp {
-			hi = tempFtoC(hi)
+			hi = round(tempFtoC(hi))
 			return &hi
 		}
 		return nil
@@ -58,7 +58,7 @@ func CalcHeatIndex(tempC float64, humidity float64) *float64 {
 
 	// Only return heat index if it's greater than the temperature
 	if hi > temp {
-		hi = tempFtoC(hi)
+		hi = round(tempFtoC(hi))
 		return &hi
 	}
 	return nil
@@ -66,7 +66,7 @@ func CalcHeatIndex(tempC float64, humidity float64) *float64 {
 
 func vary(variable *float64, maxVariance float64) {
 	delta := rand.Float64()*2*maxVariance - maxVariance
-	*variable = *variable + delta
+	*variable = round(*variable + delta)
 }
 
 func tempCtoF(tempC float64) float64 {
@@ -75,4 +75,8 @@ func tempCtoF(tempC float64) float64 {
 
 func tempFtoC(tempF float64) float64 {
 	return (tempF - 32) / 1.8
+}
+
+func round(value float64) float64 {
+	return math.Trunc(value*100) / 100
 }

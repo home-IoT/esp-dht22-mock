@@ -34,8 +34,8 @@ func newMockData() {
 	deltaTime := int64(0)
 	stale := int64(0)
 
-	temperature := (rand.Float64() * 60) - 10
-	humidity := (rand.Float64() * 90) + 10
+	temperature := round((rand.Float64() * 60) - 10)
+	humidity := round((rand.Float64() * 90) + 10)
 	heatIndex := CalcHeatIndex(temperature, humidity)
 
 	dht := models.SensorDataDht22{Humidity: &humidity, Temperature: &temperature, HeatIndex: heatIndex}
