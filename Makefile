@@ -90,6 +90,8 @@ go-build-mac:
 	@echo "build Mac binary"
 	$(MAKE) go-build GOOS=darwin GOARCH=amd64 TARGET=$(EXECUTABLE)-darwin-amd64
 
+TARGET ?= $(EXECUTABLE)
+
 go-build: 
 	go build -ldflags="-X $(CLI_PACKAGE).GitRevision=$(shell git rev-parse HEAD) -X $(CLI_PACKAGE).BuildVersion=$(VERSION) -X $(CLI_PACKAGE).BuildTime=$(DATE)" -i -o ./bin/$(TARGET) $(MAIN_FILE)
 

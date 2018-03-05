@@ -95,15 +95,6 @@
   revision = "180bba53b98899f743a112e568bed9e2ef31aa20"
 
 [[projects]]
-  name = "github.com/home-IoT/jupiter"
-  packages = [
-    "dht22-mock/models",
-    "dht22-mock/restapi/operations"
-  ]
-  revision = "49a724b6fb73ca541bccd58b02d410199a092c7b"
-  version = "v1.1.6"
-
-[[projects]]
   name = "github.com/jessevdk/go-flags"
   packages = ["."]
   revision = "96dc06278ce32a0e9d957d590bb987c81ee66407"
@@ -180,6 +171,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "245ce696f3d056f35eeed81880b47b4cf6cae873189be1226d072867075f3aea"
+  inputs-digest = "d28759715da1bd6ffbf46a4622a8b6f9757e7d2a6e1568aadf0be496c42cc19c"
   solver-name = "gps-cdcl"
   solver-version = 1
