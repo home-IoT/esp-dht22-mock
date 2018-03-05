@@ -1,5 +1,9 @@
 # DHT22 Mock Server
-    
+
+| `master`   | `develop`     |
+| ---------- | --------------|
+| [![Build Status](https://travis-ci.org/home-IoT/esp-dht22-mock.svg?branch=master)](https://travis-ci.org/home-IoT/esp-dht22-mock) | [![Build Status](https://travis-ci.org/home-IoT/esp-dht22-mock.svg?branch=develop)](https://travis-ci.org/home-IoT/esp-dht22-mock) |
+   
 This is a mock service for simulating temperature and humidity sensor boards programmed with  
 [home-IoT/esp-dht22](https://github.com/home-IoT/esp-dht22). 
 
